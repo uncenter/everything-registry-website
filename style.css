@@ -81,7 +81,6 @@ a:hover {
 .first {
     display: flex;
     align-items: baseline;
-    /* padding-bottom: 10px; */
 }
 
 .first p {
@@ -100,7 +99,7 @@ main {
     main {
         max-width: calc(100vw - 30px);
         overflow: hidden;
-        bottom: 90px;
+        bottom: 100px;
     }
 
     footer {
