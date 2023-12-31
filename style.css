@@ -1,0 +1,26 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: monospace;
+    background-color: #0f0f23;
+    color: #cccccc;
+    overflow: hidden;
+}
+
+.package {
+    display: block;
+}
+
+.package > span {
+    color: #009900;
+}
+
+main {
+    position: absolute;
+    bottom: 30%;
+    left: 30%;
+    padding-top: 30%;
+    width: 50ch;
+    white-space: nowrap;
+}
