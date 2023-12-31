@@ -100,3 +100,9 @@ main {
         gap: 10px;
     }
 }
+
+@media (max-width: 390px) {
+    main {
+        bottom: 110px;
+    }
+}
