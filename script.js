@@ -29,7 +29,7 @@ function frame() {
 
 let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"]
 let cmdText = `${pkgManagers[Math.floor(Math.random() * pkgManagers.length)]} everything`;
-let cmd = document.querySelector("p");
+let cmd = document.querySelector(".first > p");
 function type() {
     if (step != cmdText.length) {
         cmd.textContent += cmdText[step];
@@ -39,6 +39,8 @@ function type() {
         }, (Math.random() * 30) + 100);
     } else {
         step = -1;
+        let caret = document.querySelector('.caret')
+        //setTimeout(() => caret.remove(), 100)
         setTimeout(() => {
             window.requestAnimationFrame(frame);
         }, 1000);

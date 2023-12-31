@@ -24,3 +24,25 @@ main {
     width: 50ch;
     white-space: nowrap;
 }
+
+p {
+    display: inline;
+}
+
+.caret {
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: #009900;
+    }
+
+    50% {
+        color: #34be34;
+    }
+
+    100% {
+        color: #009900;
+    }
+}
