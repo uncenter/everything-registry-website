@@ -9,11 +9,6 @@ let glitch = false;
 function frame() {
     timeTilNextSpawn = Math.random() * 1;
     const pkg = document.createElement("span");
-<<<<<<< Updated upstream
-    pkg.innerHTML = `installing <span>${
-        packages[Math.floor(Math.random() * packages.length)]
-    }</span>`;
-=======
     let pkgname = packages[Math.floor(Math.random() * packages.length)];
     pkg.innerHTML = `installing <span>${pkgname}</span>`;
     if (glitch) {
@@ -22,7 +17,6 @@ function frame() {
         pkg.style.setProperty('--distance', `${1/(glitch) - 1}px`);
         pkg.style.setProperty('--ndistance', `-${1/(glitch) - 1}px`);
     }
->>>>>>> Stashed changes
     base.appendChild(pkg);
     pkgs.push(pkg);
     if (pkgs.length > 100) {
