@@ -8,11 +8,11 @@ body {
     overflow: hidden;
 }
 
-.package {
+main > span {
     display: block;
 }
 
-.package > span {
+main > span > span {
     color: #009900;
 }
 

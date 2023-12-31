@@ -3,8 +3,8 @@ let packages = `chalk,glob,axios,vue,semver,express,commander,js-yaml,minimatch,
 
 let timeTilNextSpawn = (Math.random() * 4)
 let step = -1
-
 let base = document.querySelector("main")
+let pkgs = []
 function frame() {
     step++
     if (step > timeTilNextSpawn) {
@@ -14,11 +14,14 @@ function frame() {
         if (Math.random() > 0.95) {
             timeTilNextSpawn += (Math.random() * 5)
         }
-        const package = document.createElement('span')
-        package.className = "package"
-        package.innerHTML = `installing <span>${packages[Math.floor(Math.random() * packages.length)]}</span>`
-        base.appendChild(package)
-        window.scrollTo(0, document.body.scrollHeight);
+        const pkg = document.createElement('span')
+        pkg.innerHTML = `installing <span>${packages[Math.floor(Math.random() * packages.length)]}</span>`
+        base.appendChild(pkg)
+        pkgs.push(pkg)
+        if (pkgs.length > 100) {
+            let pkg = pkgs.shift()
+            base?.removeChild(pkg)
+        }
     }
     window.requestAnimationFrame(frame)
 }
