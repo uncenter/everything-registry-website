@@ -52,4 +52,4 @@ function type() {
 setTimeout(() => {
     window.requestAnimationFrame(type);
     caret.classList.remove('blink')
-}, 700);
+}, 2000);

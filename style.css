@@ -54,7 +54,6 @@ footer {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    color: #484876 !important;
     bottom: 0;
     padding: 30px;
     width: 100%;
@@ -62,6 +61,20 @@ footer {
 
 a:visited,
 a:link,
-a:active {
-    color: #484876 !important;
+a:active,
+.secondary,
+footer {
+    color: #484876;
+}
+
+.first {
+    padding-bottom: 10px;
+}
+
+main {
+    position: absolute;
+    bottom: 60px;
+    left: 30px;
+    width: 50ch;
+    white-space: nowrap;
 }
