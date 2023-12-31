@@ -41,7 +41,6 @@ p {
 }
 
 @keyframes blink {
-
     from,
     to {
         opacity: 1;
@@ -67,6 +66,14 @@ a:active,
 .secondary,
 footer {
     color: #484876;
+}
+
+a {
+    transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+}
+a:hover {
+    color: #22bb22;
+    text-shadow: 0 0 1rem #22bb22;
 }
 
 .first {
