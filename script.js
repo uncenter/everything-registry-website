@@ -8,8 +8,9 @@ let pkgs = [];
 function frame() {
     timeTilNextSpawn = Math.random() * 1;
     const pkg = document.createElement("span");
-    pkg.innerHTML = `installing <span>${packages[Math.floor(Math.random() * packages.length)]
-        }</span>`;
+    pkg.innerHTML = `installing <span>${
+        packages[Math.floor(Math.random() * packages.length)]
+    }</span>`;
     base.appendChild(pkg);
     pkgs.push(pkg);
     if (pkgs.length > 100) {
@@ -19,10 +20,12 @@ function frame() {
     window.requestAnimationFrame(frame);
 }
 
-let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"]
-let cmdText = `${pkgManagers[Math.floor(Math.random() * pkgManagers.length)]} everything`;
+let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"];
+let cmdText = `${
+    pkgManagers[Math.floor(Math.random() * pkgManagers.length)]
+} everything`;
 let cmd = document.querySelector(".first > p");
-let caret = document.querySelector('.caret')
+let caret = document.querySelector(".caret");
 
 function type() {
     if (step != cmdText.length) {
@@ -30,9 +33,9 @@ function type() {
         step++;
         setTimeout(() => {
             window.requestAnimationFrame(type);
-        }, (Math.random() * 30) + 100);
+        }, Math.random() * 30 + 100);
     } else {
-        caret.classList.add('blink')
+        caret.classList.add("blink");
         step = -1;
         //setTimeout(() => caret.remove(), 100)
         setTimeout(() => {
@@ -43,23 +46,26 @@ function type() {
 
 setTimeout(() => {
     window.requestAnimationFrame(type);
-    caret.classList.remove('blink')
+    caret.classList.remove("blink");
 }, 2000);
 
-
 // play sound fan.mp3
-let audio = new Audio('fan.mp3');
+let audio = new Audio("fan.mp3");
 audio.loop = true;
 
 // play sound on user interaction
-document.body.addEventListener('click', function () {
-    audio.volume = 0;
-    audio.play();
-    let interval = setInterval(function () {
-        audio.volume += 0.0001;
-        if (audio.volume >= 0.25) {
-            audio.volume = 0.25;
-            clearInterval(interval);
-        }
-    }, 10);
-}, {once:true});
+document.body.addEventListener(
+    "click",
+    function () {
+        audio.volume = 0;
+        audio.play();
+        let interval = setInterval(function () {
+            audio.volume += 0.0001;
+            if (audio.volume >= 0.25) {
+                audio.volume = 0.25;
+                clearInterval(interval);
+            }
+        }, 10);
+    },
+    { once: true }
+);

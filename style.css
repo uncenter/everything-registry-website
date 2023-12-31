@@ -91,7 +91,7 @@ main {
 @media (max-width: 600px) {
     main {
         max-width: calc(100vw - 30px);
-        overflow:hidden;
+        overflow: hidden;
         bottom: 90px;
     }
     footer {
