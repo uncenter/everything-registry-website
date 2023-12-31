@@ -34,7 +34,7 @@ p {
     display: inline;
 }
 
-.caret {
+.blink {
     animation: 1.5s blink step-end infinite;
 }
 

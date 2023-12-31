@@ -30,6 +30,8 @@ function frame() {
 let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"]
 let cmdText = `${pkgManagers[Math.floor(Math.random() * pkgManagers.length)]} everything`;
 let cmd = document.querySelector(".first > p");
+let caret = document.querySelector('.caret')
+
 function type() {
     if (step != cmdText.length) {
         cmd.textContent += cmdText[step];
@@ -38,8 +40,8 @@ function type() {
             window.requestAnimationFrame(type);
         }, (Math.random() * 30) + 100);
     } else {
+        caret.classList.add('blink')
         step = -1;
-        let caret = document.querySelector('.caret')
         //setTimeout(() => caret.remove(), 100)
         setTimeout(() => {
             window.requestAnimationFrame(frame);
@@ -49,4 +51,5 @@ function type() {
 
 setTimeout(() => {
     window.requestAnimationFrame(type);
+    caret.classList.remove('blink')
 }, 700);
