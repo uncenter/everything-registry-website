@@ -45,3 +45,20 @@ setTimeout(() => {
     window.requestAnimationFrame(type);
     caret.classList.remove('blink')
 }, 2000);
+
+
+// play sound fan.mp3
+let audio = new Audio('fan.mp3');
+
+// play sound on user interaction
+document.body.addEventListener('click', function () {
+    audio.volume = 0.25;
+    audio.play();
+    // let interval = setInterval(function () {
+    //     audio.volume += 0.1;
+    //     if (audio.volume >= 1) {
+    //         audio.volume = 1;
+    //         clearInterval(interval);
+    //     }
+    // }, 1000);
+});
