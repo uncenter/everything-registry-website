@@ -171,9 +171,9 @@ span:after {
 
 video {
     z-index: 3;
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
     object-fit: cover;
     transition: opacity 3s;
     pointer-events: none;
