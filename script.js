@@ -27,7 +27,8 @@ function frame() {
     window.requestAnimationFrame(frame);
 }
 
-let cmdText = "npm install everything";
+let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"]
+let cmdText = `${pkgManagers[Math.floor(Math.random() * pkgManagers.length)]} everything`;
 let cmd = document.querySelector("p");
 function type() {
     if (step != cmdText.length) {
