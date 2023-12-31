@@ -80,7 +80,7 @@ setTimeout(() => {
             glitch += 0.001;
             if (glitch >= 0.3) {
                 glitch = 0.3;
-                clearInterval(increaseto3);
+                clearInterval(interval3);
             }
         }, 10);
     }
