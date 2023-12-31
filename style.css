@@ -81,7 +81,7 @@ a:hover {
 .first {
     display: flex;
     align-items: baseline;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .first p {
@@ -110,7 +110,7 @@ main {
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 387px) {
     main {
         bottom: 110px;
     }
