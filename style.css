@@ -176,4 +176,5 @@ video {
     min-height: 100%;
     object-fit: cover;
     transition: opacity 3s;
+    pointer-events: none;
 }
