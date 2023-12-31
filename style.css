@@ -6,6 +6,11 @@ body {
     background-color: #0f0f23;
     color: #cccccc;
     overflow: hidden;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 main > span {
@@ -30,19 +35,33 @@ p {
 }
 
 .caret {
-    animation: blink 2s infinite;
+    animation: 1.5s blink step-end infinite;
 }
 
 @keyframes blink {
-    0% {
-        color: #009900;
+
+    from,
+    to {
+        opacity: 1;
     }
 
     50% {
-        color: #34be34;
+        opacity: 0;
     }
+}
 
-    100% {
-        color: #009900;
-    }
+footer {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    color: #484876 !important;
+    bottom: 0;
+    padding: 30px;
+    width: 100%;
+}
+
+a:visited,
+a:link,
+a:active {
+    color: #484876 !important;
 }
