@@ -14,8 +14,8 @@ function frame() {
     if (glitch) {
         pkg.dataset.text = "installing " + pkgname;
         pkg.style.setProperty('--duration', `${glitch}s`);
-        pkg.style.setProperty('--distance', `${1/(glitch) - 1}px`);
-        pkg.style.setProperty('--ndistance', `-${1/(glitch) - 1}px`);
+        pkg.style.setProperty('--distance', `${1 / (glitch) - 1}px`);
+        pkg.style.setProperty('--ndistance', `-${1 / (glitch) - 1}px`);
     }
     base.appendChild(pkg);
     pkgs.push(pkg);
@@ -27,9 +27,8 @@ function frame() {
 }
 
 let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"];
-let cmdText = `${
-    pkgManagers[Math.floor(Math.random() * pkgManagers.length)]
-} everything`;
+let cmdText = `${pkgManagers[Math.floor(Math.random() * pkgManagers.length)]
+    } everything`;
 let cmd = document.querySelector(".first > p");
 let caret = document.querySelector(".caret");
 
@@ -55,9 +54,13 @@ setTimeout(() => {
     caret.classList.remove("blink");
 }, 2000);
 
-// play sound fan.mp3
 let audio = new Audio("fan.mp3");
-audio.loop = true;
+let vid = document.querySelector("video")
+vid.load()
+audio.addEventListener('ended', () => {
+    vid.style.opacity = "1"
+    setTimeout(() => vid.play(), 1000)
+})
 
 // play sound on user interaction
 document.body.addEventListener('click', function () {

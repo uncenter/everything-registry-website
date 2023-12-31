@@ -41,6 +41,7 @@ p {
 }
 
 @keyframes blink {
+
     from,
     to {
         opacity: 1;
@@ -71,6 +72,7 @@ footer {
 a {
     transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
 }
+
 a:hover {
     color: #22bb22;
     text-shadow: 0 0 1rem #22bb22;
@@ -81,6 +83,7 @@ a:hover {
     align-items: baseline;
     padding-bottom: 10px;
 }
+
 .first p {
     margin: 0;
 }
@@ -99,6 +102,7 @@ main {
         overflow: hidden;
         bottom: 90px;
     }
+
     footer {
         display: flex;
         flex-direction: column;
@@ -111,12 +115,12 @@ main {
         bottom: 110px;
     }
 }
- 
+
 span {
     position: relative;
     z-index: 1;
 }
- 
+
 span:before,
 span:after {
     display: block;
@@ -126,36 +130,50 @@ span:after {
     left: 0;
     opacity: 0.8;
 }
- 
+
 span:before {
     animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
     color: #00FFFF;
     z-index: -1;
- }
- 
+}
+
 span:after {
     animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
     color: #FF00FF;
     z-index: -2;
 }
- 
+
 @keyframes glitch-it {
     0% {
-       transform: translate(0);
+        transform: translate(0);
     }
+
     20% {
-       transform: translate(var(--ndistance), var(--distance));
+        transform: translate(var(--ndistance), var(--distance));
     }
+
     40% {
-       transform: translate(var(--ndistance), var(--ndistance));
+        transform: translate(var(--ndistance), var(--ndistance));
     }
+
     60% {
-       transform: translate(var(--distance), var(--distance));
+        transform: translate(var(--distance), var(--distance));
     }
+
     80% {
-       transform: translate(var(--distance), var(--ndistance));
+        transform: translate(var(--distance), var(--ndistance));
     }
+
     to {
-       transform: translate(0);
+        transform: translate(0);
     }
+}
+
+video {
+    z-index: 3;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transition: opacity 3s;
 }
