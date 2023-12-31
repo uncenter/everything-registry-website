@@ -1,13 +1,11 @@
 import { packages } from "./packages.js";
 
-let timeTilNextSpawn = Math.random() * 4;
 let step = 0;
 let base = document.querySelector("main");
 let pkgs = [];
 let glitch = false;
 
 function frame() {
-    timeTilNextSpawn = Math.random() * 1;
     const pkg = document.createElement("span");
     let pkgname = packages[Math.floor(Math.random() * packages.length)];
     pkg.innerHTML = `installing <span>${pkgname}</span>`;
