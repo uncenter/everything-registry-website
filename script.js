@@ -6,23 +6,15 @@ let step = 0;
 let base = document.querySelector("main");
 let pkgs = [];
 function frame() {
-    step++;
-    if (step > timeTilNextSpawn) {
-        step = -1;
-        timeTilNextSpawn = Math.random() * 2;
-        // once in a while the computer slow
-        if (Math.random() > 0.95) {
-            timeTilNextSpawn += Math.random() * 5;
-        }
-        const pkg = document.createElement("span");
-        pkg.innerHTML = `installing <span>${packages[Math.floor(Math.random() * packages.length)]
-            }</span>`;
-        base.appendChild(pkg);
-        pkgs.push(pkg);
-        if (pkgs.length > 100) {
-            let pkg = pkgs.shift();
-            base?.removeChild(pkg);
-        }
+    timeTilNextSpawn = Math.random() * 1;
+    const pkg = document.createElement("span");
+    pkg.innerHTML = `installing <span>${packages[Math.floor(Math.random() * packages.length)]
+        }</span>`;
+    base.appendChild(pkg);
+    pkgs.push(pkg);
+    if (pkgs.length > 100) {
+        let pkg = pkgs.shift();
+        base?.removeChild(pkg);
     }
     window.requestAnimationFrame(frame);
 }
