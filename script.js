@@ -72,7 +72,7 @@ document.body.addEventListener('click', function () {
     }, 10);
 }, { once: true });
 
-// trigger glitch effect after 5 seconds
+// trigger glitch effect after 10 seconds
 setTimeout(() => {
     glitch = 1;
     function increaseto3() {

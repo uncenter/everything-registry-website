@@ -77,7 +77,12 @@ a:hover {
 }
 
 .first {
+    display: flex;
+    align-items: baseline;
     padding-bottom: 10px;
+}
+.first p {
+    margin: 0;
 }
 
 main {
@@ -107,34 +112,34 @@ main {
     }
 }
  
- span {
+span {
     position: relative;
     z-index: 1;
- }
+}
  
- span:before,
- span:after {
+span:before,
+span:after {
     display: block;
     content: attr(data-text);
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0.8;
- }
+}
  
- span:before {
+span:before {
     animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
     color: #00FFFF;
     z-index: -1;
  }
  
- span:after {
+span:after {
     animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
     color: #FF00FF;
     z-index: -2;
- }
+}
  
- @keyframes glitch-it {
+@keyframes glitch-it {
     0% {
        transform: translate(0);
     }
@@ -153,4 +158,4 @@ main {
     to {
        transform: translate(0);
     }
- }
+}
