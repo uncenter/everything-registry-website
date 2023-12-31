@@ -49,10 +49,10 @@ setTimeout(() => {
 
 // play sound fan.mp3
 let audio = new Audio('fan.mp3');
+audio.loop = true;
 
 // play sound on user interaction
 document.body.addEventListener('click', function () {
-    document.body.removeEventListener('click', this);
     audio.volume = 0;
     audio.play();
     let interval = setInterval(function () {
@@ -62,4 +62,4 @@ document.body.addEventListener('click', function () {
             clearInterval(interval);
         }
     }, 10);
-});
+}, {once:true});
