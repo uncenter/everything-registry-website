@@ -5,12 +5,24 @@ let timeTilNextSpawn = Math.random() * 4;
 let step = 0;
 let base = document.querySelector("main");
 let pkgs = [];
+let glitch = false;
 function frame() {
     timeTilNextSpawn = Math.random() * 1;
     const pkg = document.createElement("span");
+<<<<<<< Updated upstream
     pkg.innerHTML = `installing <span>${
         packages[Math.floor(Math.random() * packages.length)]
     }</span>`;
+=======
+    let pkgname = packages[Math.floor(Math.random() * packages.length)];
+    pkg.innerHTML = `installing <span>${pkgname}</span>`;
+    if (glitch) {
+        pkg.dataset.text = "installing " + pkgname;
+        pkg.style.setProperty('--duration', `${glitch}s`);
+        pkg.style.setProperty('--distance', `${1/(glitch) - 1}px`);
+        pkg.style.setProperty('--ndistance', `-${1/(glitch) - 1}px`);
+    }
+>>>>>>> Stashed changes
     base.appendChild(pkg);
     pkgs.push(pkg);
     if (pkgs.length > 100) {
@@ -54,18 +66,36 @@ let audio = new Audio("fan.mp3");
 audio.loop = true;
 
 // play sound on user interaction
-document.body.addEventListener(
-    "click",
-    function () {
-        audio.volume = 0;
-        audio.play();
-        let interval = setInterval(function () {
-            audio.volume += 0.0001;
-            if (audio.volume >= 0.25) {
-                audio.volume = 0.25;
-                clearInterval(interval);
+document.body.addEventListener('click', function () {
+    audio.volume = 0;
+    audio.play();
+    let interval = setInterval(function () {
+        audio.volume += 0.0001;
+        if (audio.volume >= 0.25) {
+            audio.volume = 0.25;
+            clearInterval(interval);
+        }
+    }, 10);
+}, { once: true });
+
+// trigger glitch effect after 5 seconds
+setTimeout(() => {
+    glitch = 1;
+    function increaseto3() {
+        let interval3 = setInterval(function () {
+            glitch += 0.001;
+            if (glitch >= 0.3) {
+                glitch = 0.3;
+                clearInterval(increaseto3);
             }
         }, 10);
-    },
-    { once: true }
-);
+    }
+    let interval2 = setInterval(function () {
+        glitch -= 0.001;
+        if (glitch <= 0.001) {
+            glitch = 0.001;
+            clearInterval(interval2);
+            increaseto3();
+        }
+    }, 10);
+}, 10_000);

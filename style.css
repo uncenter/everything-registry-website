@@ -106,3 +106,51 @@ main {
         bottom: 110px;
     }
 }
+ 
+ span {
+    position: relative;
+    z-index: 1;
+ }
+ 
+ span:before,
+ span:after {
+    display: block;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+ }
+ 
+ span:before {
+    animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #00FFFF;
+    z-index: -1;
+ }
+ 
+ span:after {
+    animation: glitch-it var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #FF00FF;
+    z-index: -2;
+ }
+ 
+ @keyframes glitch-it {
+    0% {
+       transform: translate(0);
+    }
+    20% {
+       transform: translate(var(--ndistance), var(--distance));
+    }
+    40% {
+       transform: translate(var(--ndistance), var(--ndistance));
+    }
+    60% {
+       transform: translate(var(--distance), var(--distance));
+    }
+    80% {
+       transform: translate(var(--distance), var(--ndistance));
+    }
+    to {
+       transform: translate(0);
+    }
+ }
