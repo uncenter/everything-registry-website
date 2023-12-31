@@ -1,5 +1,7 @@
 import { packages } from "./packages.js";
 
+const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
 let step = 0;
 let glitch = false;
 
@@ -8,7 +10,7 @@ const pkgs = [];
 
 function frame() {
     const pkg = document.createElement("span");
-    const name = packages[Math.floor(Math.random() * packages.length)];
+    const name = random(packages);
 
     pkg.innerHTML = `installing <span>${name}</span>`;
     if (glitch) {
@@ -27,10 +29,12 @@ function frame() {
     window.requestAnimationFrame(frame);
 }
 
-const pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"];
-const cmdText = `${
-    pkgManagers[Math.floor(Math.random() * pkgManagers.length)]
-} everything`;
+const cmdText = `${random([
+    "npm install",
+    "pnpm install",
+    "yarn add",
+    "bun install",
+])} everything`;
 
 const cmd = document.querySelector(".first > p");
 const caret = document.querySelector(".caret");
