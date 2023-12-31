@@ -1,20 +1,23 @@
 import { packages } from "./packages.js";
 
 let step = 0;
-let base = document.querySelector("main");
-let pkgs = [];
 let glitch = false;
+
+const base = document.querySelector("main");
+const pkgs = [];
 
 function frame() {
     const pkg = document.createElement("span");
-    let pkgname = packages[Math.floor(Math.random() * packages.length)];
-    pkg.innerHTML = `installing <span>${pkgname}</span>`;
+    const name = packages[Math.floor(Math.random() * packages.length)];
+
+    pkg.innerHTML = `installing <span>${name}</span>`;
     if (glitch) {
-        pkg.dataset.text = "installing " + pkgname;
+        pkg.dataset.text = "installing " + name;
         pkg.style.setProperty("--duration", `${glitch}s`);
         pkg.style.setProperty("--distance", `${1 / glitch - 1}px`);
         pkg.style.setProperty("--ndistance", `-${1 / glitch - 1}px`);
     }
+
     base.appendChild(pkg);
     pkgs.push(pkg);
     if (pkgs.length > 100) {
@@ -24,12 +27,13 @@ function frame() {
     window.requestAnimationFrame(frame);
 }
 
-let pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"];
-let cmdText = `${
+const pkgManagers = ["npm install", "pnpm install", "yarn add", "bun install"];
+const cmdText = `${
     pkgManagers[Math.floor(Math.random() * pkgManagers.length)]
 } everything`;
-let cmd = document.querySelector(".first > p");
-let caret = document.querySelector(".caret");
+
+const cmd = document.querySelector(".first > p");
+const caret = document.querySelector(".caret");
 
 function type() {
     if (step != cmdText.length) {
@@ -41,7 +45,6 @@ function type() {
     } else {
         caret.classList.add("blink");
         step = -1;
-        //setTimeout(() => caret.remove(), 100)
         setTimeout(() => {
             window.requestAnimationFrame(frame);
         }, 1000);
@@ -53,8 +56,8 @@ setTimeout(() => {
     caret.classList.remove("blink");
 }, 2000);
 
-let audio = new Audio("fan.mp3");
-let vid = document.querySelector("video");
+const audio = new Audio("fan.mp3");
+const vid = document.querySelector("video");
 vid.load();
 audio.addEventListener("ended", () => {
     vid.style.opacity = "1";
@@ -64,7 +67,6 @@ vid.addEventListener("ended", () => {
     window.location = "https://github.com/everything-registry/everything";
 });
 
-// play sound on user interaction
 document.body.addEventListener(
     "click",
     function () {
@@ -81,7 +83,6 @@ document.body.addEventListener(
     { once: true }
 );
 
-// trigger glitch effect after 10 seconds
 setTimeout(() => {
     glitch = 1;
     function increaseto3() {
