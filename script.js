@@ -52,13 +52,14 @@ let audio = new Audio('fan.mp3');
 
 // play sound on user interaction
 document.body.addEventListener('click', function () {
-    audio.volume = 0.25;
+    document.body.removeEventListener('click', this);
+    audio.volume = 0;
     audio.play();
-    // let interval = setInterval(function () {
-    //     audio.volume += 0.1;
-    //     if (audio.volume >= 1) {
-    //         audio.volume = 1;
-    //         clearInterval(interval);
-    //     }
-    // }, 1000);
+    let interval = setInterval(function () {
+        audio.volume += 0.0001;
+        if (audio.volume >= 0.25) {
+            audio.volume = 0.25;
+            clearInterval(interval);
+        }
+    }, 10);
 });
