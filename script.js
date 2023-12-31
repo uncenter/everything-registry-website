@@ -61,6 +61,9 @@ audio.addEventListener('ended', () => {
     vid.style.opacity = "1"
     setTimeout(() => vid.play(), 1000)
 })
+vid.addEventListener('ended', () => {
+    window.location = "https://github.com/everything-registry/everything"
+})
 
 // play sound on user interaction
 document.body.addEventListener('click', function () {
