@@ -68,7 +68,7 @@ audio.addEventListener("ended", () => {
     setTimeout(() => vid.play(), 1000);
 });
 vid.addEventListener("ended", () => {
-    window.location = "https://github.com/everything-registry/everything";
+    window.location = "https://uncenter.dev/posts/npm-install-everything/";
 });
 
 document.body.addEventListener(
